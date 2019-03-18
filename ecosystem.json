@@ -14,11 +14,11 @@
   "deploy": {
     "production": { //生产环境
       "user": "root",//ssh登录名
-      "host": ["10.15.?.???"],//ssh host
+      "host": ["47.110.236.207"],//ssh host
       "port":"22",//ssh 端口
-      "ref": "origin/stg",//git 分支
-      "repo": "",//git url地址
-      "path": "/data/www/website",//服务器部署目录
+      "ref": "origin/master",//git 分支
+      "repo": "git@github.com:SirRoc/pm2test.git",//git url地址
+      "path": "/www/wwwroot/test",//服务器部署目录
       "ssh_options": "StrictHostKeyChecking=no",//ssh缓存是否开启
       "post-deploy" : "cnpm install && npm run build && pm2 startOrRestart ecosystem.json --env production",//git 部署完成后，启动项目的命令集
       "env"  : {
@@ -27,10 +27,10 @@
     },
     "dev":{//测试环境
       "user": "root",
-      "host": ["10.15.?.???"],
-      "ref": "origin/stg",
-      "repo": "",
-      "path": "/data/www/website—test",
+      "host": ["47.110.236.207"],
+      "ref": "origin/master",
+      "repo": "git@github.com:SirRoc/pm2test.git",
+      "path": "/www/wwwroot/test",
       "ssh_options": "StrictHostKeyChecking=no",
       "post-deploy" : "cnpm install && npm run build && pm2 startOrRestart ecosystem.json --env production",
       "env"  : {
